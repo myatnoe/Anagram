@@ -4,15 +4,15 @@ public class assignment {
 
 	public static void main(String[] args) {
 		
-		File file1 = new File("dict1");
+		File file1 = new File("dict2");
 		Anagram one = new Anagram(file1);
-		one.output("anagram1");
+		one.output("./anagram2", 0, 0);
 		
 		
 		//File file2 = new File("dict2");
-		int max = 0;
-		String maxs = "";
-		int count = 0;
+//		int max = 0;
+//		String maxs = "";
+//		int count = 0;
 //		try {
 //			Scanner scanner = new Scanner(file1);
 //			while(scanner.hasNext()){

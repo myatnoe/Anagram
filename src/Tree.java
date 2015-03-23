@@ -1,14 +1,10 @@
 
 public class Tree {
 	
-	TreeNode root;
-	TreeNode left;
-	TreeNode right;
+	private TreeNode root;
 	
 	public Tree(){
 		root = null;
-		left = null;
-		right = null;
 	}
 	
 	public Tree(TreeNode root){
@@ -18,19 +14,36 @@ public class Tree {
 	public boolean isEmpty() {
 		return root == null;
 	}
-
-	public TreeNode get(String sorted) {
-		
-		return null;
+	
+	public void add(String key, String value ){
+		this.root = add(this.root, key, value);
 	}
 	
-	public boolean update(TreeNode n){
-		// search and update the node
-		return false;
+	public TreeNode add(TreeNode n, String key, String value){
+		if( n == null) return new TreeNode(key, value);
+		int cmp = key.compareToIgnoreCase(n.getKey());
+		if( cmp < 0) n.left = add(n.left, key, value);
+		else if(cmp > 0) n.right = add(n.right, key, value);
+		else n.add(value);
+		return n;
 	}
-
-	public void add(TreeNode n) { 
-		// add new node to tree
+	
+	public String toString(){
+		return toString(this.root,0);
 	}
-
+	
+	public String toString(int count){
+		return toString(this.root,count);
+	}
+	
+	public String toString(TreeNode n, int count){
+		if(n == null) return "";
+		
+		String output = "";
+		if(n.left != null) output += toString(n.left, count);
+		output += n.toString(count);
+		if(n.right != null) output += toString(n.right, count);
+		return output;
+		
+	}
 }
