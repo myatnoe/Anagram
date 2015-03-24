@@ -6,8 +6,7 @@ public class assignment {
 		
 		File file1 = new File("dict2");
 		Anagram one = new Anagram(file1);
-		one.output("./anagram2", 0, 0);
-		
+		one.output("./anagram2", 5, 5);
 		
 		//File file2 = new File("dict2");
 //		int max = 0;
