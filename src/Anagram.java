@@ -17,7 +17,6 @@ public class Anagram {
 			Scanner scanner = new Scanner(file);
 			while(scanner.hasNext()){
 				String s = scanner.next();
-				System.out.println("adding "+s);
 				add(s);
 			}
 			scanner.close();
@@ -34,27 +33,21 @@ public class Anagram {
 	}
 	
 	public void add(String str){
-		
-		if(str.length() > 1){ // take out single letter word
-			Tree current = array[str.length() - 2]; // anagram of string length greater than or equal to 2
-			current.add(Util.sortString(str), str);
-		}
+		Tree current = array[str.length() - 1]; 
+		current.insert(Util.sortString(str), str);
 	}
 	
-	
 	public void output(String filename, int from, int count){
-		
-		from = from > 1? from - 2 : 0;
+		from = from <= 0? 0 : from - 1;
 		try {
 		      PrintStream out = new PrintStream(new FileOutputStream(filename));
-		      System.out.println("printing output");
+		      //System.out.println("printing output");
 		      for(int i = from; i < size; i++){
-		    	  //System.out.println("out length node "+i);
 		    	  Tree tree = array[i];
 		    	  out.print(tree.toString(count));
 		      }
 		      out.close();
-		      System.out.println("printed output");
+		      //System.out.println("printed output");
 
 		    } catch (FileNotFoundException e) {
 		      e.printStackTrace();
