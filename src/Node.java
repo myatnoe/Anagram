@@ -31,9 +31,5 @@ public class Node {
 			return value.toString();
 		return "";
 	}
-	
-	public String toString(){
-		return toString(0);
-	}
 
 }

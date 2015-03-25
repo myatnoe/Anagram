@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Anagram {
 	
 	private Tree[] array;
+	
 	private int size = 100;
 
 	public Anagram(File file){
@@ -41,21 +42,18 @@ public class Anagram {
 		from = from <= 0? 0 : from - 1;
 		try {
 		      PrintStream out = new PrintStream(new FileOutputStream(filename));
-		      //System.out.println("printing output");
 		      for(int i = from; i < size; i++){
 		    	  Tree tree = array[i];
 		    	  out.print(tree.toString(count));
 		      }
 		      out.close();
-		      //System.out.println("printed output");
-
 		    } catch (FileNotFoundException e) {
 		      e.printStackTrace();
 		    }
 	}
 	
 	public void output(String filename){
-		output(filename, 2, 0);
+		output(filename, 0, 0);
 	}
 	
 }
